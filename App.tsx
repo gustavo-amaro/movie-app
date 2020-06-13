@@ -1,19 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {  Text, StatusBar } from 'react-native';
+import {Container} from './styles';
+import Header from './components/Header';
+import Content from './components/Content';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
+    <>
+    <StatusBar backgroundColor="transparent" translucent={true} barStyle="light-content" />
+    <Container>
+      <Header />
+      <Content />
+    </Container>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
