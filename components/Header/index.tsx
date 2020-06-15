@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, ImageBackground } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
-export default function Header() {
+export default function Header({ image=null }) {
     const styles = StyleSheet.create({
         linearGradient: {
             flex: 1,
@@ -15,15 +15,26 @@ export default function Header() {
             borderBottomLeftRadius: 35,
             borderBottomRightRadius: 35,
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
         },
         icon: {
             marginBottom: 170
+        },
+        image: {
+            flex: 1,
+            position: 'absolute',
+            resizeMode: "cover",
+            width: '100%',
+            height: '100%',
+            alignItems: 'center',
+            justifyContent: 'center'
         }
     });
-    return (
+    return ( 
         <LinearGradient colors={['#6732a8','#3258a8']} style={styles.linearGradient} >
-            <Icon name="film" color="#fff" size={85} style={styles.icon}/>
-        </LinearGradient>
-  );
+            <ImageBackground source={{uri: image?image:null}} style={styles.image} imageStyle={{ borderBottomLeftRadius: 35, borderBottomRightRadius: 35 }}>
+                <Icon name="film" color="#fff" size={85} style={styles.icon}/>
+            </ImageBackground>
+        </LinearGradient>     
+    );
 }

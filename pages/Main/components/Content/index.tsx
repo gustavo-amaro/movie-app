@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container, MovieContainer, PosterImage, Votes } from './styles';
-import api from '../../services/api';
-import { FlatList, StyleSheet, ActivityIndicator, View } from 'react-native';
+import api from '../../../../services/api';
+import { FlatList, StyleSheet, ActivityIndicator, View, TouchableWithoutFeedback } from 'react-native';
 
-function Content() {
+function Content({navigation=null}) {
     const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
@@ -19,12 +19,18 @@ function Content() {
         getMovies();
     },[])
     
-    function Item({ item }){
+    function handleTouchMovie(movie){
+        navigation.navigate('MovieDescription', { movieId: movie.id });
+    }
+
+    function Item({ item=null }){
         return (
-            <MovieContainer key={item.id}>
-                <Votes>{item.vote_average}</Votes>
-                <PosterImage source={{uri: imageUrl+item.poster_path}} />
-            </MovieContainer>
+            <TouchableWithoutFeedback key={item.id} onPress={()=>handleTouchMovie(item)}>
+                <MovieContainer>
+                        <Votes>{item.vote_average}</Votes>
+                        <PosterImage source={{uri: imageUrl+item.poster_path}} />
+                </MovieContainer>
+            </TouchableWithoutFeedback>
         )
     }
 
