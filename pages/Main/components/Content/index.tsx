@@ -36,7 +36,7 @@ function Content({navigation=null}) {
 
     const styles = StyleSheet.create({
         list: {
-            height: '118.5%',
+            height: '100%'
         },
         listContent: {
             alignItems: 'center',
@@ -81,7 +81,7 @@ function Content({navigation=null}) {
                 numColumns={2}
                 keyExtractor={(item, index) => index.toString()}
                 onEndReached={handleLoadMore}
-                onEndReachedThreshold={0.0000000001}
+                onEndReachedThreshold={0}
                 ListFooterComponent={renderFooterLoading}
             />
         </Container>
