@@ -2,14 +2,16 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   display: flex;
+  position: absolute;
   flex-direction: row;
   flex-wrap: wrap;
   background: #fff;
-  width: 90%;
-  height: 80%;
+  width: 100%;
+  height: 75%;
   z-index: 4;
-  margin-top: 25%;
-  border-radius: 10px;
+  bottom: 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 `;
 
 export const MovieContainer = styled.View`
