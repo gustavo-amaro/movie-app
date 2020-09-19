@@ -17,6 +17,10 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.gustavo.movieapp",
+      "versionCode": 1
     }
   }
 }
