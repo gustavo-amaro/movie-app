@@ -36,6 +36,6 @@ type ScreenRouteProp = RouteProp<RootStackParamList, "MovieDescription">;
 type NavigationProp = StackNavigationProp<RootStackParamList>;
 
 export type NavigationProps = {
-  route: ScreenRouteProp;
+  route?: ScreenRouteProp;
   navigation: NavigationProp;
 };

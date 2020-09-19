@@ -5,11 +5,11 @@ import Header from "../../components/Header";
 import { Container } from "./styles";
 import { NavigationProps } from "../../@types";
 
-function Main({ navigation, route }: NavigationProps) {
+function Main({ navigation }: NavigationProps) {
   return (
     <Container>
       <Header />
-      <Content navigation={navigation} route={route} />
+      <Content navigation={navigation} />
     </Container>
   );
 }
