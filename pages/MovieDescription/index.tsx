@@ -20,7 +20,7 @@ import api from "../../services/api";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 function MovieDescription({ route, navigation }) {
-  const imageUrl = "https://image.tmdb.org/t/p/w500";
+  const imageUrl = "https://image.tmdb.org/t/p/original";
   const { movieId } = route.params;
   const [movie, setMovie] = useState({});
   const [actors, setActors] = useState([]);

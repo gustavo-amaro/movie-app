@@ -4,10 +4,11 @@ export const Container = styled.ScrollView`
   display: flex;
   position: absolute;
   background: #fff;
-  width: 90%;
-  height: 68%;
+  width: 100%;
+  height: 70%;
   z-index: 4;
-  top: 27%;
-  border-radius: 10px;
+  bottom: 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   padding: 10px;
 `;
