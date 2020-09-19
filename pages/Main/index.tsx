@@ -3,13 +3,13 @@ import React from "react";
 import Content from "./components/Content";
 import Header from "../../components/Header";
 import { Container } from "./styles";
-import Search from "./components/Search";
+import { NavigationProps } from "../../@types";
 
-function Main({ navigation }) {
+function Main({ navigation, route }: NavigationProps) {
   return (
     <Container>
       <Header />
-      <Content navigation={navigation} />
+      <Content navigation={navigation} route={route} />
     </Container>
   );
 }

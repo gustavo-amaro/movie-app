@@ -14,16 +14,29 @@ import {
   ActorName,
   ActorCharacter,
 } from "./styles";
-import { Linking, TouchableHighlight, Text } from "react-native";
+import { Linking, TouchableHighlight } from "react-native";
 import Content from "./components/Content";
 import api from "../../services/api";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { NavigationProps, Movie, Actor } from "../../@types";
 
-function MovieDescription({ route, navigation }) {
+function MovieDescription({ route, navigation }: NavigationProps) {
   const imageUrl = "https://image.tmdb.org/t/p/original";
   const { movieId } = route.params;
-  const [movie, setMovie] = useState({});
-  const [actors, setActors] = useState([]);
+  const [movie, setMovie] = useState<Movie>({
+    backdrop_path: "",
+    homepage: "",
+    id: "",
+    original_title: "",
+    overview: "",
+    poster_path: "",
+    release_date: "",
+    title: "",
+    vote_average: 0,
+    genres: [],
+  });
+
+  const [actors, setActors] = useState<Actor[]>([]);
 
   useEffect(() => {
     async function getMovie() {

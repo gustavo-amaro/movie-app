@@ -6,7 +6,11 @@ import {
   TextSearchButton,
 } from "./styles";
 
-const Search: React.FC = ({ onSearch }) => {
+type PropsSearch = {
+  onSearch: any;
+};
+
+const Search = ({ onSearch }: PropsSearch) => {
   const [searchText, setSearchText] = useState("");
   return (
     <Container>

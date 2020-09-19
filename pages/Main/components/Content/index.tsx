@@ -9,8 +9,18 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import Search from "../Search";
+import { NavigationProps } from "../../../../@types";
+import { Movie } from "../../../../@types";
 
-function Content({ navigation = null }) {
+type PropMovie = {
+  item: Movie;
+};
+
+type EndList = {
+  distanceFromEnd: number;
+};
+
+function Content({ navigation }: NavigationProps) {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
@@ -30,16 +40,13 @@ function Content({ navigation = null }) {
     getMovies();
   }, []);
 
-  function handleTouchMovie(movie) {
+  function handleTouchMovie(movie: Movie) {
     navigation.navigate("MovieDescription", { movieId: movie.id });
   }
 
-  function Item({ item = null }) {
+  function Item({ item }: PropMovie) {
     return (
-      <TouchableWithoutFeedback
-        key={item.id}
-        onPress={() => handleTouchMovie(item)}
-      >
+      <TouchableWithoutFeedback onPress={() => handleTouchMovie(item)}>
         <MovieContainer>
           <Votes>{item.vote_average}</Votes>
           <PosterImage source={{ uri: imageUrl + item.poster_path }} />
@@ -86,7 +93,7 @@ function Content({ navigation = null }) {
     ) : null;
   }
 
-  async function searchMovie(searchText) {
+  async function searchMovie(searchText: EndList | string | any) {
     console.log(searchText);
 
     if (searchText === "") {

@@ -1,5 +1,9 @@
 import styled from "styled-components/native";
 
+type PropsDescription = {
+  color?: string;
+};
+
 export const Container = styled.View`
   display: flex;
   align-items: center;
@@ -12,7 +16,7 @@ export const Description = styled.Text`
   font-size: 16px;
   text-align: justify;
   margin-top: 5px;
-  color: ${(props) => (props.color ? props.color : "#000")};
+  color: ${(props: PropsDescription) => (props.color ? props.color : "#000")};
 `;
 export const Title = styled.Text`
   font-size: 18px;
